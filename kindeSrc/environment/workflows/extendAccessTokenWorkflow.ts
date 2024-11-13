@@ -32,6 +32,6 @@ export default {
     const accessToken = accessTokenCustomClaims<{ hello: string; settings: string; permissions: []}>();
     accessToken.hello = "Hello there!";
     accessToken.settings = settings.output
-    accessToken.permissions =  res.permissions.filter((p) => !excludedPermissions.includes(p.key))
+    accessToken.permissions =  res.json.permissions.filter((p) => !excludedPermissions.includes(p.key))
   }
 }
