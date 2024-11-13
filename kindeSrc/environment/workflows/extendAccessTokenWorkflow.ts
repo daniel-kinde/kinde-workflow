@@ -23,7 +23,7 @@ export default {
     
     const kindeAPI = await createKindeAPI(event);
   
-    const res = await kindeAPI.get(
+    const { data: res } = await kindeAPI.get(
       `organizations/${orgCode}/users/${userId}/permissions`
     );
 
