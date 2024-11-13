@@ -26,6 +26,8 @@ export default {
       `organizations/${orgCode}/users/${userId}/permissions`
     );
 
+    console.log('res', res);
+
     const accessToken = accessTokenCustomClaims<{ hello: string; settings: string; permissions: []}>();
     accessToken.hello = "Hello there!";
     accessToken.settings = settings.output
