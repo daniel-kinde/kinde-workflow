@@ -22,16 +22,25 @@ export default {
     const userId = event.context.user.id;
     
     const kindeAPI = await createKindeAPI(event);
-  
+    
+    const { data: ipDetails } = await fetch(`https://ipinfo.io/${event.request.ip}?token=${ipInfoToken}`, {
+      method: "GET",
+      responseFormat: 'json',
+      headers: new Headers({
+        "Content-Type": "application/json",
+      })
+    });
+    
     const { data: res } = await kindeAPI.get(
       `organizations/${orgCode}/users/${userId}/permissions`
     );
 
     console.log('res', res);
 
-    const accessToken = accessTokenCustomClaims<{ hello: string; settings: string; permissions: []}>();
+    const accessToken = accessTokenCustomClaims<{ hello: string; settings: string; permissions: [], timezone: string;}>();
     accessToken.hello = "Hello there!";
     accessToken.settings = settings.output
     accessToken.permissions =  res.permissions.filter((p) => !excludedPermissions.includes(p.key))
+    accessToken.timezone = ipDetails.timezone;
   }
 }
