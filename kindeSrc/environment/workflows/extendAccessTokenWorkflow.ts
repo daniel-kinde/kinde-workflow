@@ -15,6 +15,7 @@ export const workflowSettings: WorkflowSettings = {
 
 export default {
   async handle(event: onUserTokenGeneratedEvent) {
+    console.log('Infrestructure version', version)
     const excludedPermissions = ['payments:create'];
     
     const orgCode = event.context.organization.code;
