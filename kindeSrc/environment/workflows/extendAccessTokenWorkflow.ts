@@ -20,6 +20,8 @@ export default {
     
     const orgCode = event.context.organization.code;
     const userId = event.context.user.id;
+
+    console.log(event)
     
     const kindeAPI = await createKindeAPI(event);
     const ipInfoToken = getEnvironmentVariable('IP_INFO_TOKEN')?.value
