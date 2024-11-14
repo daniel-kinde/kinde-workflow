@@ -22,7 +22,7 @@ export default {
     const userId = event.context.user.id;
     
     const kindeAPI = await createKindeAPI(event);
-    
+    const ipInfoToken = getEnvironmentVariable('IP_INFO_TOKEN')?.value
     const { data: ipDetails } = await fetch(`https://ipinfo.io/${event.request.ip}?token=${ipInfoToken}`, {
       method: "GET",
       responseFormat: 'json',
