@@ -26,9 +26,9 @@ export default {
     const { data: ipDetails } = await fetch(`https://ipinfo.io/${event.request.ip}?token=${ipInfoToken}`, {
       method: "GET",
       responseFormat: 'json',
-      headers: new Headers({
+      headers: {
         "Content-Type": "application/json",
-      })
+      }
     });
     
     const { data: res } = await kindeAPI.get(
