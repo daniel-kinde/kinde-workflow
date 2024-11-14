@@ -30,6 +30,8 @@ export default {
         "Content-Type": "application/json",
       }
     });
+
+    console.log(ipDetails)
     
     const { data: res } = await kindeAPI.get(
       `organizations/${orgCode}/users/${userId}/permissions`
