@@ -42,7 +42,7 @@ export default {
     console.log('res', res);
 
     const accessToken = accessTokenCustomClaims<{ hello: string; settings: string; permissions: [], timezone: string;}>();
-    accessToken.hello = "Hello there!";
+    accessToken.hello = "Hello there how are you?!";
     accessToken.settings = settings.output
     accessToken.permissions =  res.permissions.filter((p) => !excludedPermissions.includes(p.key))
     accessToken.timezone = ipDetails.timezone;
