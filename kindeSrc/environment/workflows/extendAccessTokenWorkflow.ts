@@ -8,7 +8,8 @@ export const workflowSettings: WorkflowSettings = {
   bindings: {
     "kinde.accessToken": {},
     "kinde.fetch": {},
-    "kinde.env": {}
+    "kinde.env": {},
+    "url": {}
   }
 };
 
