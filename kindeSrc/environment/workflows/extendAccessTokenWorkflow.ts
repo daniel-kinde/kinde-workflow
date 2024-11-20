@@ -1,5 +1,5 @@
 import { onUserTokenGeneratedEvent,version, createKindeAPI, getEnvironmentVariable, accessTokenCustomClaims, WorkflowSettings, WorkflowTrigger, denyAccess, fetch } from "@kinde/infrastructure"
-import { settings } from "../../../utils/utils.ts";
+import { settings } from "../../../utils/utils";
 
 export const workflowSettings: WorkflowSettings = {
   id: "addAccessTokenClaim",
@@ -8,7 +8,6 @@ export const workflowSettings: WorkflowSettings = {
   bindings: {
     "kinde.accessToken": {},
     "kinde.fetch": {},
-    "url": {},
     "kinde.env": {}
   }
 };
@@ -35,9 +34,9 @@ export default {
 
     console.log(ipDetails)
     
-    const { data: res } = await kindeAPI.get(
+    const { data: res } = await kindeAPI.get({endpoint: 
       `organizations/${orgCode}/users/${userId}/permissions`
-    );
+  });
 
     console.log('res', res);
 
